@@ -46,11 +46,11 @@
             <ion-icon name="menu-outline"></ion-icon>
           </button>
           <ul id="nav-list">
-            <li><a href="">Home</a></li>
-            <li><a href="">Skills</a></li>
-            <li><a href="">Project</a></li>
-            <li><a href="">Reviews</a></li>
-            <li><a href="#HERO">About</a></li>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#Projects">Project</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#hero">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -93,10 +93,8 @@
               </div>
               <button target="Download" class="cv">Download CV</button>
 
-              <button class="arrow">
-                <a href="#main">
-                  <ion-icon name="arrow-down-outline"></ion-icon>
-                </a>
+              <button class="arrow" id="scrollDownBtn">
+                <ion-icon name="arrow-down-outline"></ion-icon>
               </button>
             </div>
           </div>
@@ -111,12 +109,14 @@
     HIRE SECTION
 ================== -->
 
-      <section class="Hire">
+      <section class="Hire" id="Hire">
         <div class="container">
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 Hire-text">
               <h1>Interested working with me ?</h1>
-              <button>Contact Now</button>
+              <button class="btn-contact" id="contactNowBtn">
+                Contact Now
+              </button>
             </div>
           </div>
         </div>
@@ -679,7 +679,7 @@
     PROJECTS SECTION
 ==================== -->
 
-      <section class="projects">
+      <section class="projects" id="Projects">
         <div class="title-wrapper">
           <p class="section-subtitle">Our Works</p>
           <h1 class="section-title">Projects</h1>
@@ -1009,7 +1009,7 @@ TESTIMONIALS SECTION ENDS
     CONTACT SECTION
 =================== -->
 
-      <section class="hello">
+      <section class="hello" id="contact">
         <div class="container m-0-auto">
           <div class="row justify-content-center m-0-auto text-center">
             <h4>Contact</h4>
@@ -1102,6 +1102,31 @@ TESTIMONIALS SECTION ENDS
     e.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // Scroll down button functionality
+  const scrollDownBtn = document.getElementById("scrollDownBtn");
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener("click", () => {
+      const hireSection = document.querySelector(".Hire");
+      if (hireSection) {
+        hireSection.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // Contact Now button functionality
+  const contactNowBtn = document.getElementById("contactNowBtn");
+  if (contactNowBtn) {
+    contactNowBtn.addEventListener("click", () => {
+      const email = "arhumnoor109@gmail.com";
+      const subject = "Project Inquiry";
+      const body = "Hello Arhum, I am interested in working with you.";
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
+  }
 </script>
 
 <script src="./P.js"></script>
