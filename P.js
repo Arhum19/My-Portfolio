@@ -1,43 +1,51 @@
 const portfolioProjects = [
     {
-      title: "Agence WooJoh",
-      frontImage: "/Assets/images/agence-woojoh.com.jpg",
-      backImage: "Assets/images/agence-woojoh.com.jpg", // Same image or another if you want
+      title: "SyntherX",
+      frontImage: "/Assets/images/projects/syntherx.png",
+      backImage: "Assets/images/projects/syntherx.png", // Same image or another if you want
       description: "A cutting-edge website design project for SyntherX's new product line.",
-      link: "https://syntherx.com",
+      link: "https://syntherx.netlify.app/",
       skills: ["HTML", "CSS", "JavaScript", "Bootstrap", "Web Design"]
     },
     {
-      title: "Maju University Website",
-      frontImage: "./Assets/images/maju-edu-pk.jpg",
-      backImage: "./Assets/images/maju-edu-pk-.jpg",
-      description: "Full-stack development for a modern software solutions agency.",
-      link: "https://maju.edu.pk",
-      skills: ["React", "Node.js", "API", "UX"]
+      title: "Typing Speed Test",
+      frontImage: "./Assets/images/projects/Typing-speed-checker.png",
+      backImage: "./Assets/images/projects/Typing-speed-checker.png",
+      description: "Typing speed test application to measure and improve typing skills.",
+      link: "https://typing-master-65.vercel.app/",
+      skills: ["React", "Tailwind CSS", "Local Storage"]
     },
     {
-      title: "Admin Portal",
-      frontImage: "./images/portfolio-4.jpg",
-      backImage: "./Assets/images/fyp_admin_full.png",
-      description: "A UX/UI overhaul and branding revamp for a corporate admin system.",
-      link: "https://syntherx.com",
-      skills: ["Figma", "UX/UI", "Branding"]
+      title: "AI-Grammer Checker",
+      frontImage: "./Assets/images/projects/ai-grammer.png",
+      backImage: "./Assets/images/projects/ai-grammer.png",
+      description: "AI-powered grammar checking tool for enhancing writing quality.",
+      link: "https://ai-grammer-gamma.vercel.app/",
+      skills: ["React", "OpenAI LLM", "Tailwind CSS", "Express", "Node.js", "Local Storage"] 
     },
     {
-      title: "E commerce",
-      frontImage: "./images/portfolio-2.jpg",
-      backImage: "./images/portfolio-2.jpg",
-      description: "Design and implementation of an intuitive e-commerce experience.",
-      link: "https://syntherx.com",
-      skills: ["UX", "UI", "SEO", "Payment Integration"]
+      title: "Deen Tales",
+      frontImage: "./Assets/images/projects/deentales-homepage.png",
+      backImage: "./Assets/images/projects/deentales-homepage.png",
+      description: "World first Islamic AI chatbot capable of storytelling and visual interaction.(Still in Development)",
+      link: "https://github.com/Arhum19/DeenTales.git",
+      skills: ["React", "Tailwind CSS", "OpenAI LLM", "Python", "RAG", "VectorDB", "Langchain", "MongoDB"]
     },
     {
-      title: "Design Zoom",
-      frontImage: "./images/portfolio-2.jpg",
-      backImage: "./images/portfolio-2.jpg",
-      description: "SEO marketing and landing page optimization for Design Zoom.",
-      link: "https://syntherx.com",
-      skills: ["SEO", "Content Strategy", "Web Marketing"]
+      title: "AI Chatbot",
+      frontImage: "./Assets/images/projects/ai-chatbot.png",
+      backImage: "./Assets/images/projects/ai-chatbot.png",
+      description: "Ai-powered chatbot application for interactive conversations and assistance having memory feature.",
+      link: "https://chatbott-project.vercel.app/",
+      skills: ["HTML", "CSS", "JavaScript", "OpenAI LLM", "Tailwind CSS", "Express", "Node.js", "Local Storage"]
+    },
+    {
+      title: "Finance Tracker",
+      frontImage: "./Assets/images/projects1/finance-app.png",
+      backImage: "./Assets/images/projects1/finance-app.png",
+      description: "A web application to track income, expenses, and manage personal finances effectively.",
+      link: "https://finance-tracker.example.com/",
+      skills: ["C#", ".NET", "SQL Server", "Visual Studio"]
     }
   ];
 
