@@ -40,11 +40,11 @@ const portfolioProjects = [
       skills: ["HTML", "CSS", "JavaScript", "OpenAI LLM", "Tailwind CSS", "Express", "Node.js", "Local Storage"]
     },
     {
-      title: "Finance Tracker",
-      frontImage: "./Assets/images/projects1/finance-app.png",
-      backImage: "./Assets/images/projects1/finance-app.png",
-      description: "A web application to track income, expenses, and manage personal finances effectively.",
-      link: "https://finance-tracker.example.com/",
+      title: "Ai Finance Tracker",
+      frontImage: "./Assets/images/projects/finance.png",
+      backImage: "./Assets/images/projects/finance.png",
+      description: "A web application that helps users track their finances using AI technology with voice logging features.(Yet to be deployed)",
+      link: "https://github.com/Arhum19/Personal_Ai_Finance_Companion.git",
       skills: ["C#", ".NET", "SQL Server", "Visual Studio"]
     }
   ];

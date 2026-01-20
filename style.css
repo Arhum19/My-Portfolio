@@ -1,24 +1,54 @@
+/* ===============================
+   DARK PURPLE THEME - FULL OVERHAUL
+   =============================== */
+
+/* CSS Variables for easy customization */
+:root {
+  --bg-dark: #0a0a0f;
+  --bg-darker: #050508;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a2e;
+  --purple-primary: #a855f7;
+  --purple-light: #c084fc;
+  --purple-dark: #7c3aed;
+  --purple-glow: rgba(168, 85, 247, 0.3);
+  --white: #ffffff;
+  --gray-light: #e2e8f0;
+  --gray-medium: #94a3b8;
+  --gray-dark: #64748b;
+  --border-color: #2d2d3a;
+}
+
 /* html {
     scroll-behavior:smooth ;
 } */
 * {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+}
+
+/* Global body styling */
+body {
+  background-color: var(--bg-dark);
+  color: var(--gray-light);
 }
 .custom-cursor {
   overflow-x: hidden;
   position: absolute;
   width: 15px;
   height: 15px;
-  background-color: black;
+  background-color: var(--purple-primary);
   border-radius: 50%;
   pointer-events: none;
-  transition: transform 0.1s ease, background-color 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    background-color 0.1s ease;
   will-change: transform; /* Optimize performance */
+  box-shadow: 0 0 10px var(--purple-glow);
 }
 @media (max-width: 992px) {
   .custom-cursor {
@@ -26,14 +56,17 @@
   }
 }
 body button {
-  background-color: #ff4824;
-  color: aliceblue;
+  background-color: var(--purple-primary);
+  color: var(--white);
   border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 button:hover {
-  border: 2px solid white;
-  background-color: black;
-  transition: 0.5s;
+  border: 2px solid var(--purple-light);
+  background-color: var(--purple-dark);
+  box-shadow: 0 0 20px var(--purple-glow);
+  transition: 0.3s ease;
 }
 /* body h1{
   font-size: 50px;
@@ -42,7 +75,7 @@ button:hover {
 /* Loader styling */
 
 #loader {
-  border: 5px solid;
+  border: 5px solid var(--purple-primary);
   position: fixed;
   left: 50%;
   top: 50%;
@@ -54,6 +87,7 @@ button:hover {
   background-size: contain;
   display: block;
   animation: spin 0.7s linear 1;
+  box-shadow: 0 0 30px var(--purple-glow);
 }
 
 @keyframes spin {
@@ -73,19 +107,24 @@ button:hover {
 .sticky {
   position: fixed;
   top: 0;
-  background-color: white;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  background-color: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(168, 85, 247, 0.1);
   z-index: 1000; /* Ensure the navbar stays above other content */
-  transition: background-color 1s ease, box-shadow 1s ease; /* Smooth transition for background color and box shadow */
+  transition:
+    background-color 0.5s ease,
+    box-shadow 0.5s ease; /* Smooth transition for background color and box shadow */
 }
 .sticky.slow-transition {
-  transition: background-color 1s ease, box-shadow 1s ease; /* Slow transition for background color and box shadow */
+  transition:
+    background-color 0.5s ease,
+    box-shadow 0.5s ease; /* Slow transition for background color and box shadow */
 }
 
 header {
   height: 60px;
   width: 100%;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--bg-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -120,15 +159,19 @@ header nav ul li {
 }
 
 header ul li a {
-  color: black;
+  color: var(--gray-light);
   text-decoration: none;
   font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  transition: color 0.3s ease;
+}
+header ul li a:hover {
+  color: var(--purple-primary);
 }
 header p {
   font-weight: bold;
 }
 .hamburger {
-  color: black;
+  color: var(--white);
   background: none;
   border: none;
   font-size: 40px;
@@ -136,7 +179,14 @@ header p {
   position: absolute;
   right: 20px;
   z-index: 10;
-  transition: transform 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}
+.hamburger:hover {
+  color: var(--purple-primary);
+  background: none;
+  border: none;
 }
 
 .hamburger.active {
@@ -151,9 +201,12 @@ header p {
 }
 
 .logo img {
-  border: 2px solid;
+  border: 2px solid var(--purple-primary);
   height: 40px;
   width: auto;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 3px;
 }
 
 /* Mobile Styles */
@@ -192,7 +245,9 @@ header p {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease;
   }
 
   header nav ul.active {
@@ -209,7 +264,7 @@ header p {
 .hero {
   height: 85vh;
   width: 100%;
-  background-color: hsl(0, 0%, 98%);
+  background-color: var(--bg-dark);
   padding: 20px;
   display: flex;
   align-items: center;
@@ -219,27 +274,32 @@ header p {
 
 .hero h1 {
   font-size: 5rem;
-  font-weight: bolder;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 0 40px var(--purple-glow);
 }
 
 .hero h2 {
   font-size: 2rem;
+  color: var(--gray-light);
 }
 
 .hero h4 {
-  font-weight: bold;
-  color: #ff4824;
+  font-weight: 600;
+  color: var(--purple-primary);
   text-transform: uppercase;
   font-size: 1.8rem;
+  letter-spacing: 2px;
 }
 
 .hero p {
   font-size: 1rem;
+  color: var(--gray-medium);
 }
 .hero span {
-  color: #ff4824;
+  color: var(--purple-light);
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 700;
 }
 .hero .cv {
   border-radius: 50px;
@@ -247,6 +307,16 @@ header p {
   margin-bottom: 25px;
   padding: 15px 30px;
   display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--purple-primary),
+    var(--purple-dark)
+  );
+  box-shadow: 0 4px 20px var(--purple-glow);
+}
+.hero .cv:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px var(--purple-glow);
 }
 
 .hero .arrow {
@@ -260,7 +330,7 @@ header p {
   position: absolute;
   left: 30px;
 
-  color: black;
+  color: var(--purple-primary);
 }
 
 .experience {
@@ -272,12 +342,13 @@ header p {
 
 .experience h2 {
   font-size: 2rem;
-  font-weight: bold;
+  font-weight: 700;
   margin: 0 10px;
+  color: var(--white);
 }
 
 .experience p {
-  color: gray;
+  color: var(--gray-medium);
 }
 
 @keyframes move {
@@ -389,7 +460,7 @@ SkILLS AND TOOLS SECTION
 
 .skills {
   padding: 60px 20px;
-  background-color: #f7f7f7;
+  background-color: var(--bg-darker);
 }
 
 .skills-content {
@@ -399,20 +470,23 @@ SkILLS AND TOOLS SECTION
 
 .section-subtitle {
   font-size: 16px;
-  color: #999;
+  color: var(--purple-primary);
   text-transform: uppercase;
   margin-bottom: 10px;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .section-title {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: 20px;
+  color: var(--white);
 }
 
 .section-text {
   font-size: 14px;
-  color: #666;
+  color: var(--gray-medium);
   max-width: 600px;
   margin: 0 auto 30px;
 }
@@ -428,13 +502,22 @@ SkILLS AND TOOLS SECTION
   width: 125px;
   cursor: pointer;
   margin: 0 5px;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    box-shadow 0.3s;
+  background-color: var(--bg-card);
+  color: var(--gray-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
 }
 
 .toggle-btn.active,
 .toggle-btn:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: var(--purple-primary);
+  color: var(--white);
+  border-color: var(--purple-primary);
+  box-shadow: 0 0 20px var(--purple-glow);
 }
 
 .skills-box {
@@ -461,12 +544,17 @@ SkILLS AND TOOLS SECTION
 .skill-card {
   position: relative;
   padding: 15px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
   text-align: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.skill-card:hover {
+  border-color: var(--purple-primary);
+  box-shadow: 0 4px 20px var(--purple-glow);
 }
 
 .skill-card img {
@@ -480,12 +568,13 @@ SkILLS AND TOOLS SECTION
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
+  background-color: var(--purple-primary);
+  color: var(--white);
   padding: 5px 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 12px;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .skill-card:hover .tooltip {
@@ -509,7 +598,11 @@ SkILLS AND TOOLS SECTION ENDS
 ====================== */
 
 .Hire {
-  background-color: #333;
+  background: linear-gradient(
+    135deg,
+    var(--purple-dark),
+    var(--purple-primary)
+  );
   height: 150px;
   display: flex;
   align-items: center;
@@ -517,11 +610,15 @@ SkILLS AND TOOLS SECTION ENDS
 }
 .Hire-text {
   justify-content: center;
-  color: #f5f5f5;
+  color: var(--white);
   align-items: center;
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+.Hire-text h1 {
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .Hire-text button {
   margin: 0;
@@ -529,6 +626,14 @@ SkILLS AND TOOLS SECTION ENDS
   width: 150px;
   padding: 0;
   border-radius: 50px;
+  background-color: var(--white);
+  color: var(--purple-dark);
+  font-weight: 700;
+}
+.Hire-text button:hover {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  border: 2px solid var(--white);
 }
 
 @media (max-width: 576px) {
@@ -558,7 +663,7 @@ SkILLS AND TOOLS SECTION ENDS
     PROJECT SECTION
 ===================== */
 .projects {
-  background-color: white;
+  background-color: var(--bg-dark);
   margin: auto;
   padding: 40px 20px;
 }
@@ -569,16 +674,18 @@ SkILLS AND TOOLS SECTION ENDS
 }
 
 .projects .section-subtitle {
-  color: #666;
+  color: var(--purple-primary);
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .projects .section-title {
-  color: #000;
+  color: var(--white);
   font-size: 32px;
   margin: 10px 0;
+  font-weight: 700;
 }
 
 .projects li {
@@ -586,7 +693,7 @@ SkILLS AND TOOLS SECTION ENDS
 }
 
 .projects .section-text {
-  color: #777;
+  color: var(--gray-medium);
   font-size: 15px;
   max-width: 700px;
   margin: 0 auto;
@@ -601,13 +708,13 @@ SkILLS AND TOOLS SECTION ENDS
   width: 100%;
 }
 .projects p {
-  color: black !important;
+  color: var(--gray-light) !important;
   font-size: 1.2rem;
 }
 .projects h1 {
   font-size: 4rem !important;
-  font-weight: bolder;
-  color: black;
+  font-weight: 700;
+  color: var(--white);
 }
 .projects .slider-wrapper p {
   color: white !important;
@@ -636,11 +743,16 @@ SkILLS AND TOOLS SECTION ENDS
 }
 
 .projects .projects-card {
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
-  background: #000;
+  background: var(--bg-card);
   position: relative;
   transition: 0.7s ease;
+  border: 1px solid var(--border-color);
+}
+.projects .projects-card:hover {
+  border-color: var(--purple-primary);
+  box-shadow: 0 10px 40px var(--purple-glow);
 }
 
 .projects .img-cover {
@@ -683,10 +795,10 @@ SkILLS AND TOOLS SECTION ENDS
 
 .projects .slider-control {
   background: none;
-  border: 2px solid #222;
+  border: 2px solid var(--purple-primary);
   width: 40px;
   height: 40px;
-  border-radius: 1%;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -695,11 +807,12 @@ SkILLS AND TOOLS SECTION ENDS
 }
 
 .projects .slider-control:hover {
-  background: #222;
-  color: #fff;
+  background: var(--purple-primary);
+  color: var(--white);
+  box-shadow: 0 0 20px var(--purple-glow);
 }
 .projects .slider-control .arrow {
-  border: 4px solid black;
+  border: 4px solid var(--purple-primary);
   border-width: 0 2px 2px 0;
   padding: 5px;
   display: inline-block;
@@ -708,9 +821,9 @@ SkILLS AND TOOLS SECTION ENDS
 
 .projects .slider-item a {
   text-decoration: none;
-  color: #008cff;
+  color: var(--purple-light);
   font-size: 1.2rem;
-  font-weight: bolder;
+  font-weight: 700;
 }
 
 .projects .slider-control.prev .arrow {
@@ -722,7 +835,7 @@ SkILLS AND TOOLS SECTION ENDS
 }
 
 .projects .slider-control:hover .arrow {
-  border-color: #fff;
+  border-color: var(--white);
 }
 
 /* =====================
@@ -746,26 +859,31 @@ SkILLS AND TOOLS SECTION ENDS
 
 .modal-content {
   position: relative;
-  background-color: white;
+  background-color: var(--bg-card);
   margin: 5% auto;
   padding: 15px;
-  border: none;
+  border: 1px solid var(--border-color);
   width: 90%;
   max-width: 1000px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h4 {
+  color: var(--bg-darker);
 }
 
 .modal-header {
   display: flex;
   align-items: baseline;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 10px;
 }
 
 .modal-header h2 {
   margin: 0;
   flex-grow: 1;
+  color: var(--border-color);
 }
 
 .modal-body {
@@ -781,17 +899,22 @@ SkILLS AND TOOLS SECTION ENDS
 .modal-description {
   font-size: 16px;
   line-height: 1.5;
+  color: var(--gray-light) !important;
 }
 .pro-link {
   margin: 1rem;
 }
+.pro-link h4 {
+  color: var(--white);
+}
 .pro-link a {
   text-decoration: none;
+  color: var(--purple-light);
 }
 
 .close {
   margin-left: 20px;
-  color: #aaa;
+  color: var(--gray-dark);
   font-size: 45px;
   font-weight: bold;
   cursor: pointer;
@@ -799,25 +922,33 @@ SkILLS AND TOOLS SECTION ENDS
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--purple-primary);
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal .skills {
   margin-top: 20px;
+  background-color: var(--bg-card);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.modal .skills h3 {
+  color: var(--white);
+  margin-bottom: 15px;
 }
 
 .modal .skill-badge {
   display: inline-block;
   margin: 5px 5px 5px 0;
   padding: 10px 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f5f5f5;
-  color: #333;
+  border: 1px solid var(--purple-primary);
+  border-radius: 8px;
+  background-color: var(--bg-darker);
+  color: var(--purple-light);
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
 }
 /* ====================
     PROJECT MODEL END
@@ -827,14 +958,15 @@ SkILLS AND TOOLS SECTION ENDS
     REVIEWS SECTION 
 =================== */
 #reviews {
-  background-color: #f7f7f7;
+  background-color: var(--bg-darker);
 }
 #reviews h1 {
-  font-weight: bolder;
+  font-weight: 700;
+  color: var(--white);
 }
 #reviews p {
   font-size: 20px;
-  color: black;
+  color: var(--gray-light);
 }
 #reviews .card {
   border-radius: 0px;
@@ -865,6 +997,7 @@ SkILLS AND TOOLS SECTION ENDS
   align-content: center;
   height: 550px;
   padding: 20px;
+  background-color: var(--bg-dark);
 }
 
 .hello button {
@@ -874,7 +1007,16 @@ SkILLS AND TOOLS SECTION ENDS
 }
 .hello h1 {
   margin: 2rem;
-  font-weight: bolder;
+  font-weight: 700;
+  color: var(--white);
+}
+.hello h4 {
+  color: var(--purple-primary);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.hello p {
+  color: var(--gray-medium);
 }
 
 .hello .socials {
@@ -902,15 +1044,18 @@ SkILLS AND TOOLS SECTION ENDS
   font-weight: bold;
   padding: 10px;
   border-radius: 100px;
-  color: white;
-  background-color: black;
+  color: var(--white);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .hello .socials ion-icon:hover {
-  background-color: #ff4824;
-  transition: 0.5s;
+  background-color: var(--purple-primary);
+  border-color: var(--purple-primary);
+  box-shadow: 0 0 20px var(--purple-glow);
+  transition: 0.3s;
 }
-
 
 .animated-border {
   position: relative;
@@ -926,9 +1071,10 @@ SkILLS AND TOOLS SECTION ENDS
   font-weight: bold;
   cursor: pointer;
   border: 2px solid transparent;
-  background-color: #ff4824;
+  background-color: var(--purple-primary);
   transition: color 0.3s ease;
   border-radius: 50px;
+  box-shadow: 0 4px 20px var(--purple-glow);
 }
 
 .animated-border::before,
@@ -939,7 +1085,7 @@ SkILLS AND TOOLS SECTION ENDS
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #ff4824;
+  border: 2px solid var(--purple-light);
   box-sizing: border-box;
   border-radius: 50px;
 }
@@ -998,15 +1144,16 @@ footer {
   display: flex;
   align-items: center;
   height: 70px;
-  background-color: black;
+  background-color: var(--bg-darker);
+  border-top: 1px solid var(--border-color);
 }
 footer a {
-  color: white;
+  color: var(--purple-light);
   text-decoration: none;
 }
 footer p {
   text-align: center;
-  color: aliceblue;
+  color: var(--gray-medium);
 }
 /* =====================
     FOOTER SECTION END
@@ -1021,8 +1168,9 @@ footer p {
   right: 25px;
   width: 55px;
   height: 55px;
-  color: black;
+  color: var(--purple-primary);
   scroll-behavior: smooth;
+  filter: drop-shadow(0 0 10px var(--purple-glow));
 }
 
 @media (max-width: 768px) {
@@ -1165,25 +1313,29 @@ footer p {
 /* about  */
 
 .about {
-  margin: 50px 0 20px 0;
+  margin: 0;
+  background-color: var(--bg-dark);
+  padding: 20px 0;
 }
 
 .about button {
   width: 100%;
   padding: 16px;
-  background: #1f1f1f;
-  /* color: #fff; */
-  transition: background 0.25s ease;
+  background: var(--bg-card);
+  color: var(--gray-light);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
   border: none;
-  border-bottom: 1px solid #1f1f1f;
-  font-weight: bold;
+  border-bottom: 1px solid var(--border-color);
+  font-weight: 600;
 }
 .about .about-item span {
-  color: black;
+  color: var(--white);
   font-weight: bold;
 }
-.about-item span{
-  color: black;
+.about-item span {
+  color: var(--white);
   font-weight: bold;
   font-size: 0.9rem;
   /* text-align: right; */
@@ -1249,7 +1401,8 @@ footer p {
   }
 }
 .about button:hover {
-  background-color: #ff4824;
+  background-color: var(--purple-primary);
+  box-shadow: 0 0 20px var(--purple-glow);
 }
 .tab-btn-list {
   display: flex;
@@ -1262,6 +1415,18 @@ footer p {
 .tab-btn-item {
   flex: 1; /* Make each button take up equal space */
 }
+
+/* Tab button base style */
+.tab-btn {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border-color);
+  color: var(--white) !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
 @media (max-width: 576px) {
   .tab-btn-item {
     width: 20%; /* 2 buttons per row on small screens */
@@ -1273,7 +1438,10 @@ footer p {
 }
 .tab-btn.active,
 .tab-btn:hover {
-  background: #2c2c2c;
+  background: var(--purple-primary);
+  box-shadow: 0 0 20px var(--purple-glow);
+  border-color: var(--purple-primary);
+  color: var(--white) !important;
 }
 
 .tab-content {
@@ -1284,7 +1452,9 @@ footer p {
 .award-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
 }
 
 .tab-content.active {
@@ -1324,12 +1494,13 @@ footer p {
 }
 
 .section-title {
-  color: #1f1f1f;
+  color: var(--white);
   font-size: 2.5rem;
   margin-bottom: 20px;
+  font-weight: 700;
 }
 .about p {
-  color: #1f1f1f;
+  color: var(--gray-light);
   margin: 0;
   font-size: 0.95rem;
 }
@@ -1353,14 +1524,14 @@ footer p {
 }
 
 .social-link {
-  color: #1f1f1f;
+  color: var(--gray-light);
   text-decoration: none;
   font-size: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .social-link:hover {
-  color: #ffc107;
+  color: var(--purple-primary);
 }
 /* Mobile responsive for about items */
 @media (max-width: 768px) {
@@ -1385,49 +1556,59 @@ footer p {
 }
 
 .progress-bar {
-  background-color: #2f2f2f;
+  background-color: var(--bg-card);
   height: 6px;
   border-radius: 3px;
 }
 
 .progress-fill {
-  background-color: #ffc107;
+  background-color: var(--purple-primary);
   height: 100%;
   border-radius: 3px;
 }
 .education-section p,
 .education-section h2,
 .education-section small {
-  color: #121214 !important;
+  color: var(--white) !important;
 }
 
 .education-card-box {
-  border: 2px solid #121214;
-  border-radius: 0px !important;
+  border: 2px solid var(--border-color);
+  border-radius: 12px !important;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  background-color: #ffffff;
-  color: #121214;
+  background-color: var(--bg-card);
+  color: var(--gray-light);
+}
+
+.education-card-box h5 {
+  color: var(--white) !important;
+}
+
+.education-card-box p {
+  color: var(--gray-medium) !important;
 }
 
 .education-card-box:hover {
-  border: 2px solid #ffffff;
+  border: 2px solid var(--purple-primary);
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  background-color: #121214 !important;
-  color: #ffffff !important;
+  box-shadow: 0 12px 40px var(--purple-glow);
+  background-color: var(--purple-primary) !important;
+  color: var(--white) !important;
 }
 
 .education-card-box:hover p,
 .education-card-box:hover .edu-number {
-  color: #ffffff !important;
+  color: var(--white) !important;
   opacity: 1 !important;
 }
 
 .edu-number {
-  color: rgba(0, 0, 0, 0.05);
-  transition: color 0.3s ease, opacity 0.3s ease;
+  color: rgba(255, 255, 255, 0.05);
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .education-card-box:hover .edu-number {
@@ -1484,25 +1665,25 @@ footer p {
   font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 8px;
-  color: #1f1f1f;
+  color: var(--white);
 }
 
 .value {
   font-weight: bold;
-  color: #333;
+  color: var(--purple-light);
 }
 
 .progress-bar {
-  background-color: #e0e0e0;
+  background-color: var(--bg-card);
   border-radius: 6px;
-  border: #1f1f1f px solid;
+  border: 1px solid var(--border-color);
   position: relative;
   height: 8px;
   overflow: hidden;
 }
 
 .progress-fill {
-  background-color: #ff4824;
+  background: linear-gradient(90deg, var(--purple-dark), var(--purple-primary));
   height: 100%;
   border-radius: 6px;
   position: relative;
@@ -1514,12 +1695,12 @@ footer p {
 }
 
 .skill-wrapper .value {
-  color: #ffc107;
+  color: var(--purple-light);
 }
 
 .skill-wrapper .span {
   font-size: 1.1rem;
-  color: #333;
+  color: var(--gray-light);
 }
 
 /* Responsive Design for Skillset */
@@ -1549,27 +1730,35 @@ footer p {
 }
 
 .services-section p,
-h2,
-small {
-  color: #121214 !important;
+.services-section h2,
+.services-section small {
+  color: var(--white) !important;
 }
 
 .service-box {
-  border: 2px solid #121214;
-  border-radius: 0px !important;
+  border: 2px solid var(--border-color);
+  border-radius: 12px !important;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  background-color: #ffffff;
-  color: #121214;
+  background-color: var(--bg-card);
+  color: var(--gray-light);
+}
+
+.service-box h5 {
+  color: var(--border-color) !important;
+}
+
+.service-box p {
+  color: var(--gray-medium) !important;
 }
 
 .service-box:hover {
-  border: 2px solid #ffffff;
+  border: 2px solid var(--purple-primary);
   transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  background-color: #121214 !important;
-  color: #ffffff !important;
+  box-shadow: 0 12px 40px var(--purple-glow);
+  background-color: var(--purple-primary) !important;
+  color: var(--white) !important;
 }
 
 .service-box p,
@@ -1605,14 +1794,14 @@ small {
   position: absolute;
   bottom: 15px;
   right: 20px;
-  color: rgba(0, 0, 0, 0.05);
+  color: rgba(255, 255, 255, 0.05);
   font-weight: 900;
   z-index: 0;
   transition: color 0.3s ease;
 }
 
 .service-box:hover .service-number {
-  color: rgba(255, 255, 255, 0.05) !important ;
+  color: rgba(255, 255, 255, 0.15) !important ;
 }
 
 .service-content {
@@ -1638,7 +1827,8 @@ AOS (ANIMATE ON SCROLL) - GPU ACCELERATED
 [data-aos="fade-up"] {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  transition:
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform, opacity;
 }
@@ -1678,7 +1868,10 @@ button:hover {
 
 /* Service boxes - subtle lift on hover */
 .service-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -1690,7 +1883,9 @@ button:hover {
 
 /* Award cards hover effect */
 .award-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   will-change: transform;
 }
 
@@ -1701,7 +1896,9 @@ button:hover {
 
 /* Skill cards - smooth interactions */
 .skill-card {
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -1712,7 +1909,10 @@ button:hover {
 
 /* Project cards */
 .projects-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
   will-change: transform;
 }
 
@@ -1724,7 +1924,9 @@ button:hover {
 
 /* Smooth link interactions */
 a {
-  transition: color 0.3s ease, opacity 0.3s ease;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 a:active {
@@ -1735,4 +1937,3 @@ a:active {
 /* ==================
 AOS ANIMATIONS END
 ==================== */
-

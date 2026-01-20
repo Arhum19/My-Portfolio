@@ -49,6 +49,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ===== Theme System =====
+function initTheme() {
+  const savedTheme = localStorage.getItem('theme-preference') || 'light';
+  setTheme(savedTheme);
+}
+
+function setTheme(themeName) {
+  const html = document.documentElement;
+  html.classList.remove('dark-mode');
+  
+  if (themeName === 'dark') {
+    html.classList.add('dark-mode');
+  }
+  
+  localStorage.setItem('theme-preference', themeName);
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDarkMode = html.classList.contains('dark-mode');
+  
+  if (isDarkMode) {
+    setTheme('light');
+  } else {
+    setTheme('dark');
+  }
+}
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', toggleTheme);
+  }
+});
+// ===== Theme System End =====
+
 //   cursor
 function updateCursorVisibility() {
   const cursor = document.querySelector(".custom-cursor");
@@ -163,7 +202,7 @@ function showModal(index) {
     project.description;
   document.getElementById("modal-link").href = project.link;
   document.getElementById("modal-link").textContent = project.title;
-  let downloadCVBtn =  document.getElementById("downloadCVBtn");
+  let downloadCVBtn = document.getElementById("downloadCVBtn");
   // Render skills
   const skillsContainer = document.getElementById("modal-skills");
   skillsContainer.innerHTML = project.skills
@@ -213,7 +252,7 @@ document.getElementById("contactNowBtn").addEventListener("click", function () {
   );
 });
 //DOWNLOAD CV BUTTON
-if(downloadCVBtn){
+if (downloadCVBtn) {
   downloadCVBtn.addEventListener("click", () => {
     const link = document.createElement("a");
     link.href = "./Arhum_CV.pdf";
